@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, FormEvent} from "react";
 import emailjs from "@emailjs/browser";
+import { service_id, temp_key, public_key } from '../../apikeys.jsx'
 
 export default function Contact() {
 
@@ -17,8 +18,8 @@ export default function Contact() {
 
     if (form.current !== null) {
       emailjs
-        .sendForm("service_b1vsugv", "template_36b1rjp", form.current, {
-          publicKey: "BpAKj6re6T97lhrDI",
+        .sendForm(service_id, temp_key, form.current, {
+          publicKey: public_key,
         })
         .then(
           () => {
