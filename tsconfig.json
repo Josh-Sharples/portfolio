@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "apikeys.jsx"],
+  "include": ["src", "apikeys.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
