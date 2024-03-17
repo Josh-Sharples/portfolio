@@ -25,7 +25,9 @@ export default function Contact() {
           () => {
             setSuccess(true);
             setLoading(false)
-            e.target.reset();
+            if (form.current) {
+              form.current.reset();
+            }
           },
           (error: any) => {
             setSuccess(false);
