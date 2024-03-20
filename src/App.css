@@ -3,6 +3,8 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 15rem;
+  margin-bottom: 15rem;
 }
 
 .photo {
@@ -155,7 +157,7 @@ header {
     margin: auto;
     border-radius: 15px;
   }
-  
+
   .card-project {
     width: 100%;
     max-width: 300px;
@@ -168,11 +170,30 @@ header {
     border-radius: 25px;
     justify-content: center;
   }
-  
+
   .projects {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .info-small {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .info-logo-small {
+    padding-top: 30px;
+  }
+
+  .home {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 150px;
   }
 }
