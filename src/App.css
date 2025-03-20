@@ -1,5 +1,5 @@
 :root {
-  --primary-colour: white;
+  --primary-colour: #ffedd5;
   --secondary-colour: #3A455D;
 }
 
@@ -142,6 +142,7 @@ button .btn:hover {
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  background-color: var(--primary-colour);
 }
 
 .skill-img {
@@ -180,7 +181,7 @@ button .btn:hover {
   align-items: center;
   border-radius: 20px;
   justify-content: space-between;
-  border: 1px solid black;
+  border: 1px solid var(--secondary-colour);
 }
 
 .projects {
@@ -228,6 +229,7 @@ header {
   animation: 20s slide infinite linear;
   gap: 50px;
   padding-left: 50px;
+  animation-delay: 0s;
 }
 
 .logos {

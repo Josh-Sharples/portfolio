@@ -51,7 +51,7 @@ export default function Skills() {
         justifyContent: 'flex-start', 
         marginBottom: '60px',
         paddingBottom: "10px",
-        borderBottom: "solid black 1px",
+        borderBottom: "solid 1px var(--secondary-colour)",
         }}>
         <h2 className="text-3xl">Skills</h2>
       </div>
@@ -71,7 +71,18 @@ export default function Skills() {
           <div className="logos-slide">
             {skills.map((skill) => {
               return (
-                <div key={skill.skill} className="card lg:card shadow ">
+                <div key={skill.skill} className="card lg:card">
+                  <img className="skill-img" src={skill.img} />
+                  <h1>{skill.skill}</h1>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="logos-slide">
+            {skills.map((skill) => {
+              return (
+                <div key={skill.skill} className="card lg:card">
                   <img className="skill-img" src={skill.img} />
                   <h1>{skill.skill}</h1>
                 </div>

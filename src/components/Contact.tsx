@@ -46,7 +46,7 @@ export default function Contact() {
           justifyContent: "flex-start",
           marginBottom: "60px",
           paddingBottom: "10px",
-          borderBottom: "solid black 1px",
+          borderBottom: "solid 1px var(--secondary-colour)",
         }}
       >
         <h1 className="text-3xl">Contact</h1>

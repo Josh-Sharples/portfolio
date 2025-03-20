@@ -8,7 +8,7 @@ export default function About() {
           justifyContent: "flex-start",
           marginBottom: "60px",
           paddingBottom: "10px",
-          borderBottom: "solid black 1px",
+          borderBottom: "solid 1px var(--secondary-colour)",
         }}
       >
         <h2 className="text-3xl">About</h2>
