@@ -1,16 +1,65 @@
  // @ts-ignore
 import { HashLink as Link} from 'react-router-hash-link';
-import { FaBars, FaTimes } from "react-icons/fa";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export default function Header() {
-  const navRef = useRef<HTMLElement>(null);
+  const [navOpen, setNavOpen] = useState(false);
+  const navContainer = useRef<HTMLElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+
+  const body = document.body;
 
   const showNavBar = () => {
-    if (navRef.current) {
-      navRef.current.classList.toggle("responsive_nav");
+    console.log('show nav');
+    if (navContainer.current) {
+      navContainer.current.classList.toggle("active-nav");
     }
+
+    if (hamburgerRef.current) {
+      hamburgerRef.current.classList.toggle('animate');
+      body.classList.toggle('show');
+    }
+    
+    body.classList.add("show");
   };
+
+  const closeNavBar = () => {
+    console.log('close nav');
+    if (navContainer.current) {
+      hamburgerRef.current?.classList.remove('animate');
+      navContainer.current.classList.remove("active-nav");
+    }
+    body.classList.remove("show");
+  };
+
+  const handleHamburgerClick = () => {
+
+    if (navOpen) {
+        closeNavBar();
+    } else {
+        showNavBar();
+    }
+    setNavOpen(!navOpen);
+  };
+
+  // Manage event listeners for nav links
+  useEffect(() => {
+    const navLinks = document.querySelectorAll('nav a');
+    const closeNavBarOnLinkClick = () => closeNavBar();
+
+    // Add event listeners
+    navLinks.forEach((link) => {
+      link.addEventListener('click', closeNavBarOnLinkClick);
+    });
+
+    // Cleanup event listeners on component unmount
+    return () => {
+      navLinks.forEach((link) => {
+        link.removeEventListener('click', closeNavBarOnLinkClick);
+      });
+    };
+  }, []); 
+
 
   return (
     <header className="bg-orange-100">
@@ -20,28 +69,39 @@ export default function Header() {
       </Link>
       </div>
       <div style={{display: 'flex'}}>
-      <button className="nav-btn" onClick={showNavBar} aria-label="Open menu">
-        <FaBars />
+      <button className="nav-btn" onClick={handleHamburgerClick} aria-label="Open menu">
+        <div className="flex items-center lg:hidden">
+						<button
+              type="button"
+              ref={hamburgerRef}
+              id="hamburger"
+              className="mt-1 relative z-40 inline-block cursor-pointer ml-[14px] lg:hidden"
+            >
+							<span className="sr-only">Open menu</span>
+							<span className="absolute block w-full bar"></span>
+							<span className="absolute block w-full bar"></span>
+							<span className="absolute block w-full bar"></span>
+						</button>
+					</div>
       </button>
-      <nav ref={navRef}>
+      <nav ref={navContainer}>
         <button
           className="nav-btn nav-close-btn"
-          onClick={showNavBar}
+          onClick={closeNavBar}
           aria-label="Close menu"
         >
-          <FaTimes />
         </button>
-        <Link to={"#home"} smooth className="btn btn-ghost text-l" aria-label="Home" onClick={showNavBar}>
+        <Link to={"#home"} smooth className="btn btn-ghost text-l" aria-label="Home" onClick={closeNavBar}>
           Home
         </Link>
-        <Link to={"#about"} smooth className="btn btn-ghost text-l" aria-label="About" onClick={showNavBar}>
+        <Link to={"#about"} smooth className="btn btn-ghost text-l" aria-label="About" onClick={closeNavBar}>
           About
         </Link>
         <Link
           to={"#skills"} smooth
           className="btn btn-ghost text-l"
           aria-label="Skills"
-          onClick={showNavBar}
+          onClick={closeNavBar}
         >
           Skills
         </Link>
@@ -49,7 +109,7 @@ export default function Header() {
           to={"#projects"} smooth
           className="btn btn-ghost text-l"
           aria-label="Projects"
-          onClick={showNavBar}
+          onClick={closeNavBar}
         >
           Projects
         </Link>
@@ -57,7 +117,7 @@ export default function Header() {
           to={"#contact"} smooth
           className="btn btn-ghost text-l"
           aria-label="Contact"
-          onClick={showNavBar}
+          onClick={closeNavBar}
         >
           Contact
         </Link>

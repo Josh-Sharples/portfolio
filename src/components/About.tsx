@@ -1,22 +1,21 @@
 import cv from "../Images/Josh-Sharples-CV.pdf";
 export default function About() {
   return (
-    <div id="about" className="ml-20 mr-20 mt-60 mb-40 about-small">
+    <div id="about" className="ml-60 mr-60 mt-40 mb-40 about-small">
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           marginBottom: "60px",
+          paddingBottom: "10px",
+          borderBottom: "solid black 1px",
         }}
       >
-        <h1 className="text-3xl">About</h1>
+        <h2 className="text-3xl">About</h2>
       </div>
       <div className="about about-small">
         <div className="about-para about-para-small">
           <p className="text-lg" style={{ display: "flex" }}>
-            I have recently graduated from a software engineering bootcamp, as a
-            Junior Software Developer.
-            <br />
             I am fueled by 🍕 and a passion for creating and innovating both
             frontend and full-stack applications.
             <br />
@@ -26,7 +25,7 @@ export default function About() {
             <br />
             As a result, I thrive in collaborative environments, leveraging my
             interpersonal skills to deliver exceptional results, while also
-            demonstrating a strong ability to work autonomously when needed.
+            demonstrating a strong ability to work autonomously.
           </p>
         </div>
         <div style={{ display: "flex" }}>

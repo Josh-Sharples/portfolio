@@ -31,28 +31,30 @@ export default function Projects() {
   ];
 
   return (
-    <div id="projects" className="ml-20 mr-20 mt-40 mb-40">
+    <div id="projects" className="ml-60 mr-60 mt-40 mb-40">
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           marginBottom: "60px",
+          paddingBottom: "10px",
+          borderBottom: "solid black 1px",
         }}
       >
-        <h1 className="text-3xl">Projects</h1>
+        <h2 className="text-3xl">Projects</h2>
       </div>
       <div className="projects">
         {projects.map((project) => {
           return (
             <div
               key={project.projectName}
-              className="card-project lg:card bg-base-100 shadow "
+              className="card-project lg:card"
             >
               <div>
                 <img className="project-img" src={project.image} />
               </div>
               <div>
-                <h1
+                <h3
                   style={{
                     display: "flex",
                     justifyContent: "center",
@@ -61,8 +63,8 @@ export default function Projects() {
                   className="text-xl"
                 >
                   {project.projectName}
-                </h1>
-                <h1>{project.description}</h1>
+                </h3>
+                <p>{project.description}</p>
                 <div
                   style={{
                     display: "flex",

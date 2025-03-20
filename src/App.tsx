@@ -6,16 +6,20 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import background from './Images/bg-repeat.png';
 
 function App() {
+
   return (
     <>
       <Header />
-      <Home />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
+      <main id="content" style={{backgroundImage: `url(${background})`}}>
+        <Home />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
       <Footer />
     </>
   );

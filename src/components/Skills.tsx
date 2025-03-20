@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import javascript from "../Images/javascript.png";
 import typescript from "../Images/typescript-logo.png";
 import tailwind from "../Images/tailwind.png";
@@ -37,20 +38,48 @@ export default function Skills() {
     },
   ];
 
+  let [width, setWidth] = useState(0)
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
+
   return (
     <div id="skills" className="mt-40 mb-40">
-      <div style={{display: 'flex', justifyContent: 'center', marginBottom: '60px'}}>
-        <h1 className="text-3xl">Skills</h1>
+      <div className="mr-60 ml-60" style={{
+        display: 'flex', 
+        justifyContent: 'flex-start', 
+        marginBottom: '60px',
+        paddingBottom: "10px",
+        borderBottom: "solid black 1px",
+        }}>
+        <h2 className="text-3xl">Skills</h2>
       </div>
       <div className="skills skills-small">
-        {skills.map((skill) => {
-          return (
-            <div key={skill.skill} className="card lg:card bg-base-100 shadow ">
-              <img className="skill-img" src={skill.img} />
-              <h1>{skill.skill}</h1>
-            </div>
-          );
-        })}
+        <div className="logos" style={{width: `${width}px`}}>
+
+          <div className="logos-slide">
+            {skills.map((skill) => {
+              return (
+                <div key={skill.skill} className="card lg:card">
+                  <img className="skill-img" src={skill.img} />
+                  <h3>{skill.skill}</h3>
+                </div>
+              );
+            })}
+          </div>
+          <div className="logos-slide">
+            {skills.map((skill) => {
+              return (
+                <div key={skill.skill} className="card lg:card shadow ">
+                  <img className="skill-img" src={skill.img} />
+                  <h1>{skill.skill}</h1>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
       </div>
     </div>
   );

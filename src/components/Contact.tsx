@@ -39,12 +39,14 @@ export default function Contact() {
   };
 
   return (
-    <div id="contact" className="mt-40 mb-40">
+    <div id="contact" className="mt-40 mb-40 ml-60 mr-60">
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           marginBottom: "60px",
+          paddingBottom: "10px",
+          borderBottom: "solid black 1px",
         }}
       >
         <h1 className="text-3xl">Contact</h1>
