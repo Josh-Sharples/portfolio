@@ -5,7 +5,8 @@ import { service_id, temp_key, public_key } from '../../apikeys.jsx'
 export default function Contact() {
 
   const [success, setSuccess] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const form = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -32,6 +33,7 @@ export default function Contact() {
           (error: any) => {
             setSuccess(false);
             setLoading(false);
+            setError(true);
             console.log("FAILED...", error.text);
           }
         );
@@ -124,13 +126,17 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        {!success ? (
+        {!success && !error ? (
           <button style={{ display: "flex" }} className="mt-10" aria-label="Send button" disabled={loading}>
             <a className="btn bg-orange-100 text-l w-80">Send</a>
           </button>
-        ) : (
+        ) : success ? (
           <button style={{ display: "flex" }} className="mt-10" disabled={true} aria-label="Button disabled, message sent">
             <a className="btn bg-green-100 text-l w-80">Message Sent!</a>
+          </button>
+        ) : (
+          <button style={{ display: "flex" }} className="mt-10" aria-label="Failed to send message">
+            <a className="btn bg-red-100 text-l w-80">Failed to Send</a>
           </button>
         )}
       </form>

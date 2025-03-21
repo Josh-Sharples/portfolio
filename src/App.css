@@ -181,7 +181,7 @@ button .btn:hover {
   align-items: center;
   border-radius: 20px;
   justify-content: space-between;
-  border: 1px solid var(--secondary-colour);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
 
 .projects {
@@ -239,12 +239,25 @@ header {
   position: relative;
 }
 
-.logos-slide img {
+.logos-slide img, .logos-slide-rev img {
   height: 120px;
   max-width: 250px;
   margin: 0 56px;
   flex-shrink: 0;
   object-fit: contain;
+}
+
+.logos-slide-rev {
+  display: inline-flex;
+  animation: 20s slide infinite linear reverse;
+  gap: 50px;
+  padding-left: 50px;
+  animation-delay: 0s;
+  flex-direction: row-reverse;
+}
+
+form {
+  margin-bottom: 4rem;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -269,6 +282,10 @@ header {
   }
   .mb-40 {
     margin-bottom: 3rem !important;
+  }
+
+  form {
+    margin-bottom: 0rem;
   }
 
   .nav-btn {

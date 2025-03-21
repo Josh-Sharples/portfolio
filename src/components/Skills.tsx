@@ -5,37 +5,52 @@ import tailwind from "../Images/tailwind.png";
 import reactLogo from "../Images/react-logo.png";
 import node from "../Images/node.js-logo.png";
 import postgresql from "../Images/PostgreSQL-logo.png";
+import express from "../Images/express-js-logo.png";
+import jest from "../Images/jest-logo.jpg";
+import wordpress from "../Images/wordpress-logo.webp";
 
 export default function Skills() {
   const skills = [
     {
       skill: "JavaScript",
-      img: javascript,
+      img: javascript
     },
     {
       skill: "TypeScript",
-      img: typescript,
+      img: typescript
     },
     {
       skill: "Tailwind",
-      img: tailwind,
+      img: tailwind
     },
     {
       skill: "React",
-      img: reactLogo,
+      img: reactLogo
     },
     {
       skill: "React Native",
-      img: reactLogo,
+      img: reactLogo
     },
     {
       skill: "Node JS",
-      img: node,
+      img: node
     },
     {
       skill: "PostgreSQL",
-      img: postgresql,
+      img: postgresql
     },
+    {
+      skill: "Express JS",
+      img: express
+    },
+    {
+      skill: "Jest",
+      img: jest
+    }, 
+    {
+      skill: "Wordpress",
+      img: wordpress
+    }
   ];
 
   let [width, setWidth] = useState(0)
@@ -80,6 +95,42 @@ export default function Skills() {
           </div>
 
           <div className="logos-slide">
+            {skills.map((skill) => {
+              return (
+                <div key={skill.skill} className="card lg:card">
+                  <img className="skill-img" src={skill.img} />
+                  <h1>{skill.skill}</h1>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+
+        <div className="logos" style={{width: `${width}px`}}>
+
+          <div className="logos-slide-rev">
+            {skills.map((skill) => {
+              return (
+                <div key={skill.skill} className="card lg:card">
+                  <img className="skill-img" src={skill.img} />
+                  <h3>{skill.skill}</h3>
+                </div>
+              );
+            })}
+          </div>
+          <div className="logos-slide-rev">
+            {skills.map((skill) => {
+              return (
+                <div key={skill.skill} className="card lg:card">
+                  <img className="skill-img" src={skill.img} />
+                  <h1>{skill.skill}</h1>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="logos-slide-rev">
             {skills.map((skill) => {
               return (
                 <div key={skill.skill} className="card lg:card">
