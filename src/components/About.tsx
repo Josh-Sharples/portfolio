@@ -1,4 +1,4 @@
-import cv from "../Images/Josh-Sharples-CV.pdf";
+import cv from "../Images/Joshua-Sharples-CV.pdf";
 export default function About() {
   return (
     <div id="about" className="ml-60 mr-60 mt-40 mb-40 about-small">
