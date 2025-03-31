@@ -32,7 +32,7 @@ export default function About() {
           <button style={{ display: "flex" }} className="mt-10">
             <a
               href={cv}
-              download="Josh-Sharples-CV"
+              download="Joshua-Sharples-CV"
               className="btn bg-orange-100 text-l"
             >
               Download CV
