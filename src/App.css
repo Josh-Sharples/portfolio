@@ -146,6 +146,10 @@ button .btn:hover {
   background-color: var(--primary-colour);
 }
 
+.skills-small .logos:nth-child(2) {
+  display: none;
+}
+
 .skill-img {
   width: 100%;
   max-width: 100px;
@@ -431,5 +435,9 @@ form {
   .logos-slide {
     gap: 20px;
     padding-left: 20px;
+  }
+
+  .skills-small .logos:nth-child(2) {
+    display: inherit;
   }
 }
